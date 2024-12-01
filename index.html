@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名前シミュレーター</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>コアラのマーチ第2弾 名前シミュレーター</h1>
+    <button onclick="simulateNames()">シミュレーション開始</button>
+    <ul id="result"></ul>
+
+    <script>
+        // 名前リスト
+        const names = [
+            'あおと', 'いわた', 'かおる', 'きょうか', 'こじま', 'しょうへい', 'たえこ', 'つちや',
+            'にしだ', 'ひめか', 'ましろ', 'みのる', 'ゆみこ', 'るか', 'あおば', 'いわもと',
+            'かける', 'きょうすけ', 'ことは', 'しょうや', 'たか', 'つぼみ', 'にしやま', 'ひゅうが',
+            'ますだ', 'みはる', 'ゆめじ', 'るき', 'あおやま', 'うえの', 'かずこ', 'きょうた',
+            'こにし', 'しらいし', 'たかこ', 'つよし', 'にな', 'ひらい', 'まち', 'みやけ', 'ゆりこ',
+            // ここに全リストを追加してください
+        ];
+
+        // シミュレーション関数
+        function simulateNames() {
+            const resultList = document.getElementById('result');
+            resultList.innerHTML = ''; // 結果をリセット
+
+            // ランダムに23個選ぶ
+            const shuffled = names.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 23);
+
+            // 結果を表示
+            selected.forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                resultList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
